@@ -6,7 +6,7 @@ export class AppService {
     return {status: HttpStatus.OK,date:[{"name":"Welcome"}]};
   }
   viewUserData(userDataArr: any): any {
-    return {status: HttpStatus.OK, message:"Successful"}
+    return {status: HttpStatus.OK, message:"Successful"} 
   }
 }
 // Here we do our database query and return to the controller.
