@@ -1,13 +1,10 @@
-import { Body, Controller, Get, Post, Req} from '@nestjs/common';  // We get get, post, put, delete, Controller from @nestjs/common
-import { brotliDecompressSync } from 'zlib';
-import { AppService } from './app.service';  // Injectable logic from app service
-import fs from 'fs';
-
+import { Body, Controller, Get, Post } from '@nestjs/common'; // We get get, post, put, delete, Controller from @nestjs/common
+import { AppService } from './app.service';
 
 @Controller('user-data')
 export class AppController {
+  someData: any[] = [];
   constructor(private readonly appService: AppService) {}
-  someData: Object[] = [];
 
   @Get()
   getHello(): any {
@@ -17,8 +14,8 @@ export class AppController {
   @Post()
   viewData(@Body() body): any {
     if (body) {
-      console.log(body)
+      console.log(body);
     }
-    return `User data added successfully`
+    return `User data added successfully`;
   }
 }
