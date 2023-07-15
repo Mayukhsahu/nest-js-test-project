@@ -26,8 +26,8 @@ export class TestCrudController {
       const createQuoteResponse = await this.testCrudService.createQuote(quoteDetails)
       quoteId = createQuoteResponse.insertId
 
-      const insertEmp = await this.testCrudService.insertEmployee(employeeDetails, quoteId)
-      const insertQuote = await this.testCrudService.insertQuoteBenefits(benefitsArray, quoteId)
+      await this.testCrudService.insertEmployee(employeeDetails, quoteId) // Insert employee details
+      await this.testCrudService.insertQuoteBenefits(benefitsArray, quoteId)  // Insert quote benefits
       const getTotal = await this.testCrudService.getTotalEployees(quoteId)
       totalEmployee = getTotal[0]['COUNT(id)']
 
